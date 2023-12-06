@@ -152,6 +152,7 @@ module.exports = mongoose => {
 
 
 # fixtures :    
+```js 
     db.tutorials.insertMany([
   {
     title: "Parking 1",
@@ -204,3 +205,4 @@ module.exports = mongoose => {
     worked: false,
   },
 ]);
+```
