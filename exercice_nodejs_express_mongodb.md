@@ -125,7 +125,7 @@ module.exports = mongoose => {
   { "title": "Parking 11", "description": "50 place", "worked": true },
   { "title": "Parking 12", "description": "30 place", "worked": false },
   { "title": "Parking 13", "description": "40 place", "worked": true }
-])
+  ])
     ```
 
     - Récupérer tous les parkings:
