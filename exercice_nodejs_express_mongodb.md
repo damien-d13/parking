@@ -120,35 +120,51 @@ module.exports = mongoose => {
 - A vous de tester, vérifier que les étapes de la partie 1 fonctionnent également sur votre application ! 
 
     -Insérer trois nouveau parkings
+    ```js 
     db.parkings.insertMany([
   { "title": "Parking 11", "description": "50 place", "worked": true },
   { "title": "Parking 12", "description": "30 place", "worked": false },
   { "title": "Parking 13", "description": "40 place", "worked": true }
 ])
+    ```
 
     - Récupérer tous les parkings:
+    ```js 
     db.parkings.find().pretty()
+    ```
 
     - Récupérer un parking par son ID:
+    ```js 
     db.parkings.find({ _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") })
+    ```
 
     - Récupérer un parking avec un filtre de contenance sur le titre:
+    ```js 
     db.parkings.find({ title: { $regex: new RegExp("Parking 1"), $options: "i" } })
+    ```
 
     - Modifier un parking existant:
+    ```js 
     db.parkings.updateOne(
       { _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") },
       { $set: { title: "Parking 1", description: "50 place", worked: true } }
     )
+    ```
 
     - Supprimer un parking par son ID:
+    ```js 
     db.parkings.deleteOne({ _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") })
+    ```
 
     - Supprimer tous les parkings (vous pouvez réexécuter vos insertions après):
+    ```js 
     db.parkings.deleteMany({})
+    ```
 
     - Récupérer tous les parking worked:
+    ```js 
     db.parkings.find({ worked: true }).pretty()
+    ```
 
 
 # fixtures :    
