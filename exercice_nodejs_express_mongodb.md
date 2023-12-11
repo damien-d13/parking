@@ -18,13 +18,57 @@ node server.js
 ![capture suivante](express-tutorial-http-infos.png)
 - Vous devez réaliser les requêtes http permettant de :
     - Insérer trois nouveau tutoriel
+    ```js
+    db.tutorials.insertMany([
+  {
+    title: "Tutoriel 11",
+    description: "Ceci est la description du onzieme tutoriel.",
+    published: true,
+  },
+  {
+    title: "Tutoriel 12",
+    description: "Ceci est la description du douxieme tutoriel.",
+    published: false,
+  },
+  {
+    title: "Tutoriel 13",
+    description: "Ceci est la description du treizieme tutoriel.",
+    published: true,
+  },
+  ]);
+    ```
+
     - Récupérer tous les tutoriels
+    ```js 
+    db.tutorials.find().pretty()
+    ```
     - Récupérer un tutoriel par son ID
+    ```js
+    db.tutorials.find({ _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") })
+    ```
     - Récupérer un tutoriel avec un filtre de contenance sur le titre
+    ```js
+    db.tutorials.find({ title: { $regex: new RegExp("Tutoriel 1"), $options: "i" } })
+    ```
     - Modifier un tutoriel existant
+    ```js
+    db.tutorials.updateOne(
+      { _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") },
+      { $set: { title: "Tutoriel 1", description: "Ceci est la description du premier tutoriel.", published: true } }
+    )
+    ```
     - Supprimer un tutoriel par son ID
+    ```js
+    db.tutorials.deleteOne({ _id: ObjectId("5f9b2b3b9b0b9b1b9b9b9b9b") })
+    ```
     - Supprimer tous les tutoriels (vous pouvez réexécuter vos insertions après)
+    ```js
+    db.tutorials.deleteMany({})
+    ```
     - Récupérer tous les tutoriels publiés (Attention, vous devez spécifier vous même le published à la création pour en trouver)
+    ```js
+    db.tutorials.find({ published: true }).pretty()
+    ```
 
 ## Analysez le contenu de l'application
 - Vous allez devoir réaliser par la suite un code similaire à celui qui est proposé, prenez le temps de l'analyser.
